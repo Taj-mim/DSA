@@ -10,4 +10,5 @@ for i in range(n-1):
         l[index_start]=temp
 print(l)
 
-#this is the best way we can also use shifting.but shifting takes more time for that using swapping is best
+#this is the best way we can also use shifting.but shifting takes more time for that
+#  using swapping is best
