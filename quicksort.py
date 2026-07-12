@@ -1,26 +1,31 @@
-def partition(arr,low,high):
-    pivot=arr[high]
-    i=low-1
-    for j in range(low,high):
-        if(arr[j]<pivot):
-            i=i+1
-            temp1=arr[i]
-            arr[i]=arr[j]
-            arr[j]=temp1
+
+
+def partition(arr,start,end):
+    pivot=arr[end]
+    index=start-1
+    for j in range(start,end):
+       if(arr[j]<=pivot):
+          index+=1
+          temp=arr[j]
+          arr[j]=arr[index]
+          arr[index]=temp
+
+    temp1=arr[end]
+    arr[end]=arr[index+1]
+    arr[index+1]=temp1
+    return index+1
     
-    arr[i+1],arr[high]=arr[high],arr[i+1]
-    return i+1
+def quicksort(arr,start,end):
+    if(start<end):
+       pivot_index=partition(arr,start,end)
+       quicksort(arr,start,pivot_index-1)
+       quicksort(arr,pivot_index+1,end)
+
+#quick sort :
+arr=list(map(int,input().split(',')))
+quicksort(arr,0,len(arr)-1)
+print (arr)
 
 
-
-def quicksort(arr,low,high):
-    if(low<high):
-        pivot_index=partition(arr,low,high)
-        quicksort(arr,low,pivot_index-1)
-        quicksort(arr,pivot_index+1,high)
-
-
-l=list(map(int,input().split(',')))
-quicksort(l,0,len(l)-1)
-print(l)
-
+         
+         
